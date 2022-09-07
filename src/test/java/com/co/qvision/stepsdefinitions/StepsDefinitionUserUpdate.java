@@ -1,6 +1,7 @@
 package com.co.qvision.stepsdefinitions;
 
-import com.co.qvision.models.Credentials;
+import com.co.qvision.models.LoginCredentials;
+import com.co.qvision.models.UpdateCredentials;
 import com.co.qvision.tasks.Home;
 import com.co.qvision.tasks.MyAccount;
 import cucumber.api.java.Before;
@@ -33,18 +34,29 @@ public class StepsDefinitionUserUpdate {
     }
 
     @When("^enter my correct credentials$")
-    public void enterMyCorrectCredentials(List<Credentials> credentialsList) {
+    public void enterMyCorrectCredentials(List<LoginCredentials> loginCredentialsList  ) {
+
         // Call the method tha navigate to the module my account
         OnStage.theActorInTheSpotlight().attemptsTo(Home.seeMyAccount());
-        // Save the credentials on the model credentials object
-        Credentials credentials;
-        credentials = credentialsList.get(0);
+
+        // Save the loginCredentials on the model loginCredentials object
+        LoginCredentials loginCredentials;
+        loginCredentials = loginCredentialsList.get(0);
+
         // Call the method to enter crendentials
-        OnStage.theActorInTheSpotlight().attemptsTo(MyAccount.enterCredentilas(credentials));
+        OnStage.theActorInTheSpotlight().attemptsTo(MyAccount.enterCredentials(loginCredentials));
+
     }
 
     @When("^change my personal data$")
-    public void changeMyPersonalData() {
+    public void changeMyPersonalData( List<UpdateCredentials> updateCredentialsList) {
+
+        // Save the update credentials on the model updateCredentials
+        UpdateCredentials updateCredentials;
+        updateCredentials = updateCredentialsList.get(0);
+
+        // Call method that update the credentials
+        OnStage.theActorInTheSpotlight().attemptsTo(MyAccount.updateData(updateCredentials));
 
     }
 

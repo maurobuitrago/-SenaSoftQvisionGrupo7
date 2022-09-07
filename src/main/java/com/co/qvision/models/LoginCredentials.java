@@ -1,10 +1,10 @@
 package com.co.qvision.models;
 
-public class Credentials {
+public class LoginCredentials {
     private String idUser;
     private String password;
 
-    public Credentials(String idUser, String password) {
+    public LoginCredentials(String idUser, String password) {
         this.idUser = idUser;
         this.password = password;
     }
