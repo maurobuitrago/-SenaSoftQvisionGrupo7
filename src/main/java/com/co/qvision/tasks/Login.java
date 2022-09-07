@@ -12,12 +12,13 @@ import com.co.qvision.interactions.WaitElement;
 
 public class Login implements Task {
 
+    //bring credentials
     Credentials credentials;
 
     public Login(Credentials credentials) {
         this.credentials = credentials;
     }
-
+    //interact with the different pages to make the login
     @Override
     public <T extends Actor> void performAs(T actor) {
 

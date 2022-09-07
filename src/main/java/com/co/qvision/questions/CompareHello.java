@@ -19,7 +19,7 @@ public class CompareHello implements Question {
         return new CompareHello(mapCredentials);
     }
 
-
+    //compare that the welcome greeting contains the defined document
 
     @Override
     public Boolean answeredBy(Actor actor) {

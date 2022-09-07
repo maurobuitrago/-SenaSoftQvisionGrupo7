@@ -3,6 +3,8 @@ package com.co.qvision.userinterfaces;
 import net.serenitybdd.screenplay.targets.Target;
 
 public class AccountPage {
+    //mapped elements of the bonbonite login and register page
+
 
     public static final Target TXT_DOCUMENT = Target.the("Input tipe txt for the document")
             .locatedBy("//input[@id=\"username\"]");
