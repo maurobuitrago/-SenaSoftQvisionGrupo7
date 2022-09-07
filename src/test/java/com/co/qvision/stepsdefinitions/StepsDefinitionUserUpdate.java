@@ -4,7 +4,7 @@ import com.co.qvision.exceptions.ExeptionUpdate;
 import com.co.qvision.models.LoginCredentials;
 import com.co.qvision.models.UpdateCredentials;
 import com.co.qvision.questions.CompareUpdate;
-import com.co.qvision.tasks.Home;
+import com.co.qvision.tasks.HomeAccount;
 import com.co.qvision.tasks.MyAccountLogin;
 import com.co.qvision.tasks.MyAccountUpdateCredentials;
 import cucumber.api.java.Before;
@@ -22,7 +22,6 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
 
 public class StepsDefinitionUserUpdate {
     // Here instance the web driver that we use
@@ -44,7 +43,7 @@ public class StepsDefinitionUserUpdate {
     public void enterMyCorrectCredentials(List<LoginCredentials> loginCredentialsList  ) {
 
         // Call the method tha navigate to the module my account
-        OnStage.theActorInTheSpotlight().attemptsTo(Home.seeMyAccount());
+        OnStage.theActorInTheSpotlight().attemptsTo(HomeAccount.seeMyAccount());
 
         // Save the loginCredentials on the model loginCredentials object
         LoginCredentials loginCredentials;
