@@ -1,5 +1,7 @@
 package com.co.qvision.stepsdefinitions;
 
+import com.co.qvision.models.Credentials;
+import com.co.qvision.tasks.Login;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -10,6 +12,9 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
+
+import java.util.List;
+
 
 public class LoginStepDefinitions {
 
@@ -30,12 +35,14 @@ public class LoginStepDefinitions {
     }
 
     @When("^i enter my credentials correctly$")
-    public void iEnterMyCredentialsCorrectly() {
-
+    public void iEnterMyCredentialsCorrectly(List<Credentials> credentialsList) {
+        Credentials credentials;
+        credentials = credentialsList.get(0);
+        OnStage.theActorInTheSpotlight().attemptsTo(Login.enter(credentials));
     }
 
     @Then("^i should see my document in the screen$")
-    public void iShouldSeeMyDocumentInTheScreen() {
+    public void iShouldSeeMyDocumentInTheScreen(List<Credentials>dataList) {
 
     }
 
