@@ -18,6 +18,7 @@ public class Login implements Task {
     public Login(Credentials credentials) {
         this.credentials = credentials;
     }
+
     //interact with the different pages to make the login
     @Override
     public <T extends Actor> void performAs(T actor) {
