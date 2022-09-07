@@ -11,3 +11,4 @@ Feature: Login succesful
       | document   | password        |
       | 1014856939 | g.8uw69JywvUmM2 |
     Then i should see my document in the screen
+      | document   |1014856939 |
