@@ -7,24 +7,21 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 
-public class Cart implements Task {
+public class CartReserve implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(Click.on(IndexPage.BTN_SHOES));
-        actor.attemptsTo(Click.on(ShoesPage.BTN_SIZE_));
-        actor.attemptsTo(Click.on(ShoesPage.BTN_PURCHASE));
+        actor.attemptsTo(Click.on(ShoesPage.BTN_SIZE_OUT_STOCK));
+        actor.attemptsTo(Click.on(ShoesPage.BTN_RESERVE));
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        actor.attemptsTo(Click.on(ShoesPage.BTN_CART));
-
 
     }
-
-    public static Cart add(){
-        return Tasks.instrumented(Cart.class);
+    public static CartReserve reserve(){
+        return Tasks.instrumented(CartReserve.class);
     }
 }
