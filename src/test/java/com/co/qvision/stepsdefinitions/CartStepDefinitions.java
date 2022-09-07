@@ -10,6 +10,8 @@ import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.actors.OnStage;
 import org.hamcrest.Matchers;
 
+import java.util.Map;
+
 public class CartStepDefinitions {
 
     @When("^i add a product to the cart$")
@@ -32,6 +34,10 @@ public class CartStepDefinitions {
     @When("^i add a product out of stock to the cart$")
     public void iAddAProductOutOfStockToTheCart() {
         OnStage.theActorInTheSpotlight().attemptsTo(CartReserve.reserve());
+    }
+    @When("^complete the reserve form$")
+    public void completeTheReserveForm(Map<String,String> mapReserve) {
+
     }
 
 

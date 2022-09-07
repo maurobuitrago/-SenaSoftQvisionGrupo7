@@ -15,4 +15,6 @@ Feature: Cart module
   Scenario: Reserve a product
     Given im on the BonBonite page
     When i add a product out of stock to the cart
+    And complete the reserve form
+    |||
     Then should be able to book it
