@@ -9,6 +9,6 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features = "src/test/java/resources/features/Login.feature",
         snippets = SnippetType.CAMELCASE,
-        glue = "com.co.qvision.stepdefinitions")
+        glue = "com.co.qvision.stepsdefinitions")
 public class LoginRunner {
 }
