@@ -8,5 +8,6 @@ Feature: Update user data
       | 1031803334 | dscr2005daniel51835436 |
     And change my personal data
       | name   | lastName | email               | currentPassword        | newPassword |
-      | Daniel | Roa      | lion35528@gmail.com | dscr2005daniel51835436 | dscr2005    |
-    Then sould see my data update
+      | Daniel | Roa      | lion35528@gmail.com | dscr2005daniel51835436 | dscr20051234567890    |
+    Then should see my data update
+    |name|Daniel|
