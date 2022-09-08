@@ -36,7 +36,7 @@ public class Login implements Task {
 
 
     }
-    public static Login enter(Credentials credentials) {
+    public static Login enterCredentials(Credentials credentials) {
         return Tasks.instrumented(Login.class, credentials);
     }
 }

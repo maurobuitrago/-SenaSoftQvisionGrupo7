@@ -7,6 +7,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Scroll;
 
 public class CartAdd implements Task {
 
@@ -18,6 +19,7 @@ public class CartAdd implements Task {
         actor.attemptsTo(Click.on(HomePage.BTN_SHOES_PRODUCT));
 
         //Select size and add in the cart
+        actor.attemptsTo(Scroll.to(ShoesPage.OPTION_PRODUCT));
         actor.attemptsTo(Click.on(ShoesPage.BTN_SIZE_));
         actor.attemptsTo(WaitElement.untilBeEnable(ShoesPage.BTN_PURCHASE));
         actor.attemptsTo(Click.on(ShoesPage.BTN_PURCHASE));

@@ -5,12 +5,17 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;
 
-public class CompareSubtotal implements Question {
+public class QuestionPrice implements Question {
+
+    //get the unit price of the product as a string
     @Override
     public Object answeredBy(Actor actor) {
-        return Text.of(ShoppingCartPage.TXT_SUBTOTAL).viewedBy(actor).asString();
+        return Text.of(ShoppingCartPage.TXT_PRICE).viewedBy(actor).asString();
     }
-    public static CompareSubtotal compare() {
-        return new CompareSubtotal();
+
+
+    public static QuestionPrice compare() {
+        return new QuestionPrice();
+
     }
 }

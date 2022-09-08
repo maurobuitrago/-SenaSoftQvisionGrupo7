@@ -13,11 +13,6 @@ public class CartIncrement implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(WaitElement.untilBeEnable(ShoppingCartPage.TXT_QUANTITY));
         actor.attemptsTo(Click.on(ShoppingCartPage.TXT_QUANTITY));
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         actor.attemptsTo(Enter.theValue("2").into(ShoppingCartPage.TXT_QUANTITY));
         try {
             Thread.sleep(4000);

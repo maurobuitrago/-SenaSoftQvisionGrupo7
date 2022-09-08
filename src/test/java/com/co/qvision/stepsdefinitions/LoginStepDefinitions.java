@@ -46,7 +46,7 @@ public class LoginStepDefinitions {
     public void iEnterMyCredentialsCorrectly(List<Credentials> credentialsList) {
         Credentials credentials;
         credentials = credentialsList.get(0);
-        OnStage.theActorInTheSpotlight().attemptsTo(Login.enter(credentials));
+        OnStage.theActorInTheSpotlight().attemptsTo(Login.enterCredentials(credentials));
     }
 
     //call the feature document and verify that the data brought from the question are true
