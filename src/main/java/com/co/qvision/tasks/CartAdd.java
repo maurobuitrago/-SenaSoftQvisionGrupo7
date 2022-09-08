@@ -23,7 +23,7 @@ public class CartAdd implements Task {
         actor.attemptsTo(Click.on(ShoesPage.BTN_SIZE_));
         actor.attemptsTo(WaitElement.untilBeEnable(ShoesPage.BTN_PURCHASE));
         actor.attemptsTo(Click.on(ShoesPage.BTN_PURCHASE));
-        actor.attemptsTo(Click.on(ShoesPage.BTN_CART));
+
 
 
     }

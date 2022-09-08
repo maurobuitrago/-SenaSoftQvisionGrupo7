@@ -1,5 +1,6 @@
 package com.co.qvision.stepsdefinitions;
 
+import com.co.qvision.exceptions.Exception;
 import com.co.qvision.questions.CompareHello;
 import com.co.qvision.questions.CompareReserve;
 import com.co.qvision.questions.CompareTotal;
@@ -8,6 +9,7 @@ import com.co.qvision.tasks.CartAdd;
 import com.co.qvision.tasks.CartIncrement;
 import com.co.qvision.tasks.CartReserve;
 import com.co.qvision.tasks.ReserveForm;
+import com.co.qvision.utils.Constant;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.serenitybdd.screenplay.GivenWhenThen;
@@ -38,11 +40,12 @@ public class CartStepDefinitions {
 
     @Then("^should be able to see its final price$")
     public void shouldBeAbleToSeeItsFinalPrice() {
+
         //the test is passed if the final price after increasing units is different from the unit price of the product
         //if the subtotal has the same value as the unit price even after increasing the units
         // then true will be returned and the test will not be passed
         OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(CompareTotal.compare(),
-                Matchers.equalTo(Boolean.FALSE)));
+                Matchers.equalTo(Boolean.FALSE)).orComplainWith(Exception.class, Constant.errorToIncrement));
     }
 
     @When("^i add a product out of stock to the cart$")
@@ -64,7 +67,7 @@ public class CartStepDefinitions {
 
         //verify that the reservation sending message was received correctly
         OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(CompareReserve.compare()
-                , Matchers.equalTo("Gracias por tu mensaje. Ha sido enviado.")));
+                , Matchers.equalTo(Constant.menssageReservedCorrect)));
     }
 
 }

@@ -10,4 +10,9 @@ public class HomePage{
 
     // This locator get the button menu shoes
     public static final Target BTN_SHOES_PRODUCT = Target.the("Button shoes").locatedBy("//li[@id='menu-item-10']");
+
+    // This locator get the button menu bags
+
+    public static final Target BTN_BAGS_PRODUCT = Target.the("Button bags").locatedBy("//*[@id=\"menu-item-8\"]/a");
+
 }
