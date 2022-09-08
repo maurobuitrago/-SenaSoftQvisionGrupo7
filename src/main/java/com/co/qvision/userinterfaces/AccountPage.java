@@ -6,10 +6,10 @@ public class AccountPage {
     //mapped elements of the bonbonite login and register page
 
 
-    public static final Target TXT_DOCUMENT = Target.the("Input tipe txt for the document")
+    public static final Target INPUT_DOCUMENT = Target.the("Input tipe txt for the document")
             .locatedBy("//input[@id=\"username\"]");
 
-    public static final  Target TXT_PASSWORD = Target.the("Input type password")
+    public static final  Target INPUT_PASSWORD = Target.the("Input type password")
             .locatedBy("//input[@id=\"password\"]");
 
     public static final  Target BTN_lOGIN = Target.the("Button for the login")

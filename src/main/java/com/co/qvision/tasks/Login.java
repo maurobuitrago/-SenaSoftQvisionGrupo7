@@ -2,7 +2,7 @@ package com.co.qvision.tasks;
 
 import com.co.qvision.models.Credentials;
 import com.co.qvision.userinterfaces.AccountPage;
-import com.co.qvision.userinterfaces.IndexPage;
+import com.co.qvision.userinterfaces.HomePage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
@@ -23,10 +23,14 @@ public class Login implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
-        actor.attemptsTo(Click.on(IndexPage.BTN_LOG));
-        actor.attemptsTo(WaitElement.untilBeEnable(AccountPage.TXT_DOCUMENT));
-        actor.attemptsTo(Enter.theValue(credentials.getDocument()).into(AccountPage.TXT_DOCUMENT));
-        actor.attemptsTo(Enter.theValue(credentials.getPassword()).into(AccountPage.TXT_PASSWORD));
+        // Enter to the login menu
+        actor.attemptsTo(Click.on(HomePage.BTN_OPEN_MENU));
+        actor.attemptsTo(Click.on(HomePage.BTN_MI_ACCOUNT_MENU));
+
+        // Enter credentials
+        actor.attemptsTo(WaitElement.untilBeEnable(AccountPage.INPUT_DOCUMENT));
+        actor.attemptsTo(Enter.theValue(credentials.getDocument()).into(AccountPage.INPUT_DOCUMENT));
+        actor.attemptsTo(Enter.theValue(credentials.getPassword()).into(AccountPage.INPUT_PASSWORD));
         actor.attemptsTo(WaitElement.untilBeEnable(AccountPage.BTN_lOGIN));
         actor.attemptsTo(Click.on(AccountPage.BTN_lOGIN));
 

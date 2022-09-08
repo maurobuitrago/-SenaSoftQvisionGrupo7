@@ -10,8 +10,9 @@ import org.junit.runner.RunWith;
 //feature route: what will be run?
 //snippet: write in camelcase the steps
 //glue path: how the feature will be run
-@CucumberOptions(features = "src/test/java/resources/features/Cart.feature",
+@CucumberOptions(features = "src/test/resources/features/Cart.feature",
         snippets = SnippetType.CAMELCASE,
-        glue = "com.co.qvision.stepsdefinitions")
+        glue = "com.co.qvision.stepsdefinitions",
+        tags = "@Add")
 public class CartRunner {
 }

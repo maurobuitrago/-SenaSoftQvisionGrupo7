@@ -4,19 +4,16 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class ShoesPage {
 
-    public static final Target BTN_DROPDOWN_RANGE_PRICE = Target.the("Button dropdown filter").locatedBy("//div[@class='more_filters']");
-    public static Target selectRange(String rangePrice){
-        return Target.the("Price range").locatedBy("//div[@class='options_precio']/div[" + rangePrice + "]");
-    }
-    public static final Target BTN_FILTER_PRODUCT = Target.the("Button filter").locatedBy("//a[@id='filtrar_button']");
-
     //SELECT A RANDOM PRODUCT FOR VALIDATE
 
     //get a random integer number from 1 to 3 for shoe size
     static int aleatorySize = (int) Math.floor(Math.random()*(3-1+1)+1);
     static int aleatorySizeOutStock = (int) Math.floor(Math.random()*(3-1+1)+1);
     //get a random integer from 1 to 10 to select the product
-    static int aleatoryProduct = (int) Math.floor(Math.random()*(10-1+1)+1);
+    static int aleatoryProduct = (int) Math.floor(Math.random()*(6-1+1)+1);
+
+    public static final Target OPTION_PRODUCT = Target.the("random product")
+            .locatedBy("//ul[@class=\"products columns-3\"]/li["+aleatoryProduct+"]");
 
     //------------------------------------PURCHASE PRODUCT---------------------------------
     //the button of a random size on stock of a random product is selected and clicked
@@ -30,9 +27,7 @@ public class ShoesPage {
     public static final Target BTN_CART = Target.the("button open shopping cart")
             .locatedBy("//p/a[@href=\"https://www.bon-bonite.com/carrito/\"]");
 
-    //the price of the product is compared
-    public static final Target TXT_PRICE = Target.the("price for the unity")
-            .locatedBy("//td[4]/span/bdi/text()");
+
 
     //--------------------------------------RESERVE PRODUCT---------------------------------
 
@@ -44,20 +39,23 @@ public class ShoesPage {
     public static final Target BTN_RESERVE = Target.the("random button reserve of shoes ")
             .locatedBy("//ul[@class=\"products columns-3\"]/li["+aleatoryProduct+"]/div/div/div[2]/div[@class=\"fake_button reservar\"]");
     //enter the name of the actor
-    public static final Target INPT_NAME = Target.the("input type text for the name user")
+    public static final Target INPUT_NAME = Target.the("input type text for the name user")
             .locatedBy("//input[@name=\"your-name\"]");
     //enter the email of the actor
-    public static final Target INPT_EMAIL = Target.the("input type text for the user email")
+    public static final Target INPUT_EMAIL = Target.the("input type text for the user email")
             .locatedBy("//input[@type=\"email\"]");
     //enter the number of the actor
-    public static final Target INPT_TEL = Target.the("input type text for the number user")
+    public static final Target INPUT_TEL = Target.the("input type text for the number user")
             .locatedBy("//input[@name=\"your-tel\"]");
     //enter the document of the actor
-    public static final Target INPT_DOC = Target.the("input type text for the document user")
+    public static final Target INPUT_DOC = Target.the("input type text for the document user")
             .locatedBy("//input[@name=\"your-ceudla\"]");
     //click in button reserve to confirm
     public static final Target BTN_RESERVE_SEND = Target.the("button to send the reserve of shoes")
-            .locatedBy("//input[@name=\"your-ceudla\"]");
+            .locatedBy("//input[@value=\"Reservar\"]");
 
+    //text of reserve confirmed
+    public static final Target TXT_RESERVE = Target.the("text of the message confirmation of the reserve")
+            .locatedBy("//div[contains(text(),'Gracias por tu mensaje. Ha sido enviado.')]");
 }
 
