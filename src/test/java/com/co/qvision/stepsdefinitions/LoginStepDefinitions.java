@@ -1,8 +1,11 @@
 package com.co.qvision.stepsdefinitions;
 
 import com.co.qvision.models.Credentials;
+import com.co.qvision.questions.CompareDocument;
 import com.co.qvision.questions.CompareHello;
+import com.co.qvision.questions.ComparePassword;
 import com.co.qvision.tasks.Login;
+import com.co.qvision.utils.Constant;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -55,6 +58,32 @@ public class LoginStepDefinitions {
         OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(CompareHello.compare(mapCredentials),
                 Matchers.equalTo(Boolean.TRUE)));
 
+    }
+    @When("^i enter invalid password$")
+    public void iEnterInvalidPassword(List<Credentials>credentialsList) {
+        Credentials credentials;
+        credentials = credentialsList.get(0);
+        OnStage.theActorInTheSpotlight().attemptsTo(Login.enterCredentials(credentials));
+    }
+
+    @Then("^i will not be able to login$")
+    public void iWillNotBeAbleToLogin() {
+        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(ComparePassword.compare()
+                , Matchers.equalTo(Constant.invalidPassword)));
+    }
+
+    @When("^i enter nonexistent user$")
+    public void iEnterNonexistentUser(List<Credentials>credentialsList) {
+        Credentials credentials;
+        credentials = credentialsList.get(0);
+        OnStage.theActorInTheSpotlight().attemptsTo(Login.enterCredentials(credentials));
+
+    }
+
+    @Then("^print the error that the user does not exist$")
+    public void printTheErrorThatTheUserDoesNotExist() {
+        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(CompareDocument.compare()
+                , Matchers.equalTo(Constant.invalidDocument)));
     }
 
 }
